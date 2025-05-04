@@ -2,17 +2,18 @@ from dagster import op
 from minio import Minio
 import json
 import io
+from ..config.load_env import minio_endpoint, minio_access_key, minio_secret_key, minio_bucket
 
 @op
 def save_to_minio(data):
     client = Minio(
-        "localhost:9000",
-        access_key="u6cjd0aLfJ1HhBL8pInT",
-        secret_key="OfASIjz9fzT3Fxdn1O74NPjWp3VinT60y2oZ5V0H",
+        minio_endpoint,
+        access_key=minio_access_key,
+        secret_key=minio_secret_key,
         secure=False
     )
 
-    bucket = "youtube-raw"
+    bucket = minio_bucket
     key = "video_data.json"
     content = json.dumps(data).encode("utf-8")
 

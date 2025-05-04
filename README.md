@@ -20,3 +20,8 @@ Dagster (new experimental tool) dg needs to be installed:
 ```shell
 dg dev # Start Dagster webserver
 ```
+
+
+# Manually Running the Job:
+Go to Job Section and Select `Youtube ETL ...`,
+And then Run Click
